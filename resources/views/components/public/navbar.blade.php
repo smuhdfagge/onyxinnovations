@@ -35,6 +35,7 @@
                 </div>
 
                 <a href="{{ route('portfolio.index') }}" class="font-medium text-gray-900 hover:text-blue-600 transition-colors duration-300 {{ request()->routeIs('portfolio.*') ? 'text-blue-600' : '' }}">Portfolio</a>
+                <a href="{{ route('products.index') }}" class="font-medium text-gray-900 hover:text-blue-600 transition-colors duration-300 {{ request()->routeIs('products.*') ? 'text-blue-600' : '' }}">Products</a>
                 <a href="{{ route('investors') }}" class="font-medium text-gray-900 hover:text-blue-600 transition-colors duration-300 {{ request()->routeIs('investors') ? 'text-blue-600' : '' }}">Investors</a>
                 <a href="{{ route('careers.index') }}" class="font-medium text-gray-900 hover:text-blue-600 transition-colors duration-300 {{ request()->routeIs('careers.*') ? 'text-blue-600' : '' }}">Careers</a>
                 <a href="{{ route('blog.index') }}" class="font-medium text-gray-900 hover:text-blue-600 transition-colors duration-300 {{ request()->routeIs('blog.*') ? 'text-blue-600' : '' }}">Blog</a>
@@ -65,6 +66,7 @@
             <a href="{{ route('about') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">About</a>
             <a href="{{ route('services.index') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">Services</a>
             <a href="{{ route('portfolio.index') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">Portfolio</a>
+            <a href="{{ route('products.index') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">Products</a>
             <a href="{{ route('investors') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">Investors</a>
             <a href="{{ route('careers.index') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">Careers</a>
             <a href="{{ route('blog.index') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">Blog</a>

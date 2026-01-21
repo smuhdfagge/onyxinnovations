@@ -46,6 +46,7 @@
                 <ul class="space-y-3">
                     <li><a href="<?php echo e(route('about')); ?>" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
                     <li><a href="<?php echo e(route('portfolio.index')); ?>" class="text-gray-400 hover:text-white transition-colors">Our Portfolio</a></li>
+                    <li><a href="<?php echo e(route('products.index')); ?>" class="text-gray-400 hover:text-white transition-colors">Our Products</a></li>
                     <li><a href="<?php echo e(route('investors')); ?>" class="text-gray-400 hover:text-white transition-colors">Investors</a></li>
                     <li><a href="<?php echo e(route('careers.index')); ?>" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
                     <li><a href="<?php echo e(route('blog.index')); ?>" class="text-gray-400 hover:text-white transition-colors">Blog & Insights</a></li>

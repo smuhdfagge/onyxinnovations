@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\CareerController as AdminCareerController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\IndustryController as AdminIndustryController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 // Public Routes
@@ -49,6 +51,10 @@ Route::post('/careers/{job}/apply', [CareerController::class, 'apply'])->name('c
 // Blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
+
+// Products
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 // Contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -136,6 +142,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     Route::get('investor-documents', [AdminSettingsController::class, 'investorDocuments'])->name('investor-documents.index');
     Route::post('investor-documents', [AdminSettingsController::class, 'storeInvestorDocument'])->name('investor-documents.store');
     Route::delete('investor-documents/{document}', [AdminSettingsController::class, 'destroyInvestorDocument'])->name('investor-documents.destroy');
+
+    // Products
+    Route::resource('products', AdminProductController::class);
+    Route::patch('products/{id}/restore', [AdminProductController::class, 'restore'])->name('products.restore');
+    Route::delete('products/{id}/force-delete', [AdminProductController::class, 'forceDelete'])->name('products.force-delete');
 });
 
 require __DIR__.'/auth.php';
