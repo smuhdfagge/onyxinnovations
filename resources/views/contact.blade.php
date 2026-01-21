@@ -114,7 +114,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 mb-1">Office Address</h4>
-                                <p class="text-gray-600">123 Technology Park,<br>Innovation City, IC 12345</p>
+                                <p class="text-gray-600">Block B House B2,<br>Sani Zangon Daura Estate, Kado, Abuja</p>
                             </div>
                         </li>
                         <li class="flex items-start space-x-4">
@@ -125,8 +125,8 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 mb-1">Phone</h4>
-                                <p class="text-gray-600">+1 (234) 567-8900</p>
-                                <p class="text-gray-600">+1 (234) 567-8901</p>
+                                <p class="text-gray-600">+234 8023491938</p>
+                                <p class="text-gray-600">+234 7030486396</p>
                             </div>
                         </li>
                         <li class="flex items-start space-x-4">
@@ -137,8 +137,8 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
-                                <p class="text-gray-600">info@onyxinnovations.com</p>
-                                <p class="text-gray-600">support@onyxinnovations.com</p>
+                                <p class="text-gray-600">info@onyxil.com</p>
+                                <p class="text-gray-600">support@onyxil.com</p>
                             </div>
                         </li>
                     </ul>
