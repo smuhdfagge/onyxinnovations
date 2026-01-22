@@ -22,6 +22,51 @@ use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\File;
+
+// DEBUG: Temporary route to check storage path - DELETE AFTER DEBUGGING
+Route::get('/debug-storage', function () {
+    $testPath = 'products/logos/uFzcctvgOa2AsRiRdxeo8WLEBffvI5hfEe57dnc5.png';
+    $fullPath = storage_path('app/public/' . $testPath);
+    
+    $info = [
+        'storage_path' => storage_path('app/public'),
+        'full_file_path' => $fullPath,
+        'file_exists' => File::exists($fullPath) ? 'YES' : 'NO',
+        'directory_exists' => File::isDirectory(storage_path('app/public/products/logos')) ? 'YES' : 'NO',
+        'storage_app_public_exists' => File::isDirectory(storage_path('app/public')) ? 'YES' : 'NO',
+    ];
+    
+    // List files in products/logos if directory exists
+    if (File::isDirectory(storage_path('app/public/products/logos'))) {
+        $info['files_in_logos_dir'] = File::files(storage_path('app/public/products/logos'));
+    }
+    
+    // List directories in storage/app/public
+    if (File::isDirectory(storage_path('app/public'))) {
+        $info['dirs_in_storage'] = File::directories(storage_path('app/public'));
+    }
+    
+    return '<pre>' . print_r($info, true) . '</pre>';
+});
+
+// Route to serve storage files (workaround for hosts without symlink support)
+Route::get('/storage/{path}', function ($path) {
+    $filePath = storage_path('app/public/' . $path);
+    
+    if (!File::exists($filePath)) {
+        abort(404);
+    }
+    
+    $mimeType = File::mimeType($filePath);
+    $content = File::get($filePath);
+    
+    return Response::make($content, 200, [
+        'Content-Type' => $mimeType,
+        'Cache-Control' => 'public, max-age=31536000',
+    ]);
+})->where('path', '.*')->name('storage.serve');
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
